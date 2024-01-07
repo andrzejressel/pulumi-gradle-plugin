@@ -1,0 +1,42 @@
+[versions]
+# Must match version used by Gradle
+# https://docs.gradle.org/current/userguide/compatibility.html
+kotlin = { strictly = "1.9.20" }
+assertj = "3.24.2"
+autonomousapps_testkit = "0.8"
+guava = "32.1.3-jre"
+commons-exec = "1.3"
+commons-lang3 = "3.14.0"
+commons-io = "2.11.0"
+commons-compress = "1.21"
+jsr305 = "3.0.2"
+junit = "5.9.3"
+jetbrains-annotations = "24.1.0"
+spotless = "6.23.3"
+git-version = "3.0.0"
+maven-publish = "0.26.0"
+
+[libraries]
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+commons-exec = { module = "org.apache.commons:commons-exec", version.ref = "commons-exec" }
+commons-lang = { module = "org.apache.commons:commons-lang3", version.ref = "commons-lang3" }
+commons-io = { module = "commons-io:commons-io", version.ref = "commons-io" }
+commons-compress = { module = "org.apache.commons:commons-compress", version.ref = "commons-compress" }
+jsr305 = { module = "com.google.code.findbugs:jsr305", version.ref = "jsr305" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
+jetbrains-annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains-annotations" }
+spotless-gradle-plugin = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "spotless" }
+git-version-gradle-plugin = { module = "com.palantir.gradle.gitversion:gradle-git-version", version.ref = "git-version" }
+maven-publish-gradle-plugin = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "maven-publish" }
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+testkit = { id = "com.autonomousapps.testkit", version.ref = "autonomousapps_testkit" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+git-version = {id = "com.palantir.git-version", version.ref = "git-version"}
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }
+parent = { id = "pl.andrzejressel.deeplambdaserialization.buildplugin.parent", version = "UNKNOWN" }
+child = { id = "pl.andrzejressel.deeplambdaserialization.buildplugin.child", version = "UNKNOWN" }

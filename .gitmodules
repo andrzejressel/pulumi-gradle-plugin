@@ -1,0 +1,6 @@
+[submodule "modules/kotlin/pulumi-kotlin"]
+	path = modules/kotlin/pulumi-kotlin
+	url = https://github.com/VirtuslabRnD/pulumi-kotlin.git
+[submodule "pulumi-java-fork"]
+	path = pulumi-java-fork
+	url = https://github.com/andrzejressel/pulumi-java.git
