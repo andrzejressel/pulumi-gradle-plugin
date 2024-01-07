@@ -22,8 +22,8 @@ dependencies {
   compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20")
   implementation(libs.commons.lang)
   functionalTestImplementation(libs.commons.io)
-  functionalTestImplementation(libs.junit.jupiter.api)
-  functionalTestRuntimeOnly(libs.junit.jupiter.engine)
+  functionalTestImplementation(libs.junit.jupiter)
+  functionalTestRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 gradlePlugin {

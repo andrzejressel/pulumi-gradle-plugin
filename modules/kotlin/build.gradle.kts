@@ -31,8 +31,6 @@ dependencies {
   implementation("com.google.code.gson:gson:2.10.1")
 }
 
-tasks.test { useJUnitPlatform() }
-
 java { toolchain { languageVersion = JavaLanguageVersion.of(11) } }
 
 sourceSets { main { kotlin { srcDir("pulumi-kotlin/src/main/kotlin") } } }

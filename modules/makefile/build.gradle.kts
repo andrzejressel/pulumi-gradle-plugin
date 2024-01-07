@@ -17,16 +17,9 @@ configure<CommonExtension> { license = License.LGPL }
 repositories { mavenCentral() }
 
 dependencies {
-  implementation(project(":modules:kotlin"))
-  //    implementation(libs.commons.exec)
-  //    implementation(libs.commons.io)
-  //    implementation(libs.commons.lang)
-  //    implementation(libs.commons.compress)
-  //    implementation(libs.jsr305)
-
   testImplementation(libs.assertj.core)
-  testImplementation(libs.junit.jupiter.api)
-  testRuntimeOnly(libs.junit.jupiter.engine)
+  testImplementation(libs.junit.jupiter)
+  testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.test { useJUnitPlatform() }
