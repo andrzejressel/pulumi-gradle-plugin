@@ -69,11 +69,11 @@ public class DownloadProviderTest {
     assertThat(provider.schemaJson).exists();
     assertThat(provider.providerBinary).exists();
     assertThat(provider.version)
-        .isEqualTo(getProviderVersioon(provider.providerBinary))
+        .isEqualTo(getProviderVersion(provider.providerBinary))
         .isEqualTo("1.11.0-alpha.1704557719+a980065a");
   }
 
-  private String getProviderVersioon(Path providerBinary) throws Exception {
+  private String getProviderVersion(Path providerBinary) throws Exception {
     var cmd = new CommandLine(providerBinary.toString());
     cmd.addArgument("--version");
 

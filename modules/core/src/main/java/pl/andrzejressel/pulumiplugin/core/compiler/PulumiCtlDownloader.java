@@ -3,6 +3,7 @@ package pl.andrzejressel.pulumiplugin.core.compiler;
 
 import static org.apache.commons.lang3.SystemUtils.OS_ARCH;
 import static org.apache.commons.lang3.SystemUtils.OS_NAME;
+import static pl.andrzejressel.pulumiplugin.core.utils.ExecutableUtils.makeExecuable;
 
 import java.net.URL;
 import java.nio.file.Files;
@@ -49,7 +50,7 @@ public class PulumiCtlDownloader {
         VERSION, VERSION, getSystemSuffix(), getArchitectureSuffix()));
     FileUtils.copyURLToFile(url, tempFile.toFile());
     TarGzExtractor.extractTarGz(tempFile, tempDirectory);
-    return tempDirectory.resolve("pulumictl");
+    return makeExecuable(tempDirectory.resolve("pulumictl"));
   }
 
   private String getSystemSuffix() {

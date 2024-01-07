@@ -3,6 +3,7 @@ package pl.andrzejressel.pulumiplugin.core.languages;
 
 import static org.apache.commons.lang3.SystemUtils.OS_ARCH;
 import static org.apache.commons.lang3.SystemUtils.OS_NAME;
+import static pl.andrzejressel.pulumiplugin.core.utils.ExecutableUtils.makeExecuable;
 
 import java.io.IOException;
 import java.net.URL;
@@ -63,7 +64,7 @@ public class JavaLanguage implements Language {
       throw new IllegalStateException(
           String.format("Executable: [%s] cannot be found", executable));
     }
-    return executable;
+    return makeExecuable(executable);
   }
 
   private String getSystemSuffix() {
