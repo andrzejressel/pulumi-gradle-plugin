@@ -18,12 +18,21 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
+    - name: Support longpaths
+      if: matrix.os == 'windows-latest'
+      run: git config --system core.longpaths true
     - uses: actions/checkout@v4
+    - name: Download submodules
+      run: git submodule update --init --recursive
     - name: Set up JDK ${{ matrix.java_version }}
       uses: actions/setup-java@v4
       with:
         java-version: ${{ matrix.java_version }}
-        distribution: 'temurin'
+        distribution: temurin
+    - name: Setup Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21.x'
     - name: configure Pagefile
       uses: al-cheb/configure-pagefile-action@v1.3
       if: matrix.os == 'windows-latest'

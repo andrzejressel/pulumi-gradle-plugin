@@ -7,6 +7,7 @@ plugins {
   `kotlin-dsl` apply false
   alias(libs.plugins.testkit)
   `java-library`
+  jacoco
 }
 
 apply<ChildPlugin>()
@@ -31,3 +32,15 @@ dependencies {
 tasks.test { useJUnitPlatform() }
 
 java { toolchain { languageVersion = JavaLanguageVersion.of(11) } }
+
+tasks.jacocoTestReport {
+  dependsOn("test")
+
+  executionData.setFrom(fileTree(layout.buildDirectory).include("/jacoco/*.exec"))
+  reports {
+    xml.required = true
+    html.required = true
+  }
+}
+
+tasks.named("check") { dependsOn("jacocoTestReport") }

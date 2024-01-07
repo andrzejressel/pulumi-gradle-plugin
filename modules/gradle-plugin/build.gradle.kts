@@ -7,6 +7,7 @@ plugins {
   `kotlin-dsl`
   `java-gradle-plugin`
   alias(libs.plugins.testkit)
+  jacoco
 }
 
 apply<ChildPlugin>()
@@ -44,3 +45,15 @@ gradleTestKitSupport {
   withSupportLibrary("0.14")
   withTruthLibrary("1.5")
 }
+
+tasks.jacocoTestReport {
+  dependsOn("test", "functionalTest")
+
+  executionData.setFrom(fileTree(layout.buildDirectory).include("/jacoco/*.exec"))
+  reports {
+    xml.required = true
+    html.required = true
+  }
+}
+
+tasks.named("check") { dependsOn("jacocoTestReport") }
