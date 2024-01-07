@@ -19,7 +19,7 @@ repositories { mavenCentral() }
 dependencies {
   implementation(project(":modules:core"))
   //    compileOnly(libs.plugins.kotlin)
-  compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20")
+  compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
   implementation(libs.commons.lang)
   functionalTestImplementation(libs.commons.io)
   functionalTestImplementation(libs.junit.jupiter.api)
