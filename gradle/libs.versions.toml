@@ -2,7 +2,7 @@
 # Must match version used by Gradle
 # https://docs.gradle.org/current/userguide/compatibility.html
 kotlin = { strictly = "1.9.20" }
-assertj = "3.24.2"
+assertj = "3.25.1"
 autonomousapps_testkit = "0.8"
 guava = "32.1.3-jre"
 commons-exec = "1.4.0"
