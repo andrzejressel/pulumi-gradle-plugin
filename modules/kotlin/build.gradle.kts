@@ -17,7 +17,7 @@ repositories { mavenCentral() }
 dependencies {
   implementation("org.virtuslab:pulumi-kotlin:0.9.4.0")
 
-  implementation("com.squareup:kotlinpoet:1.14.2")
+  implementation("com.squareup:kotlinpoet:1.15.3")
   implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.7.3")
 
