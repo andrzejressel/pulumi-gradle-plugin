@@ -61,23 +61,21 @@ class ChildPlugin : Plugin<Project> {
           licenses {
             when (license) {
               GPL ->
-                license {
-                  name = "The GNU General Public License"
-                  url = "https://www.gnu.org/licenses/gpl-3.0.txt"
-                  distribution = "https://www.gnu.org/licenses/gpl-3.0.txt"
-                }
+                  license {
+                    name = "The GNU General Public License"
+                    url = "https://www.gnu.org/licenses/gpl-3.0.txt"
+                    distribution = "https://www.gnu.org/licenses/gpl-3.0.txt"
+                  }
               LGPL ->
-                license {
-                  name = "Gnu Lesser General Public License"
-                  url = "https://www.gnu.org/licenses/lgpl-3.0.txt"
-                  distribution = "https://www.gnu.org/licenses/lgpl-3.0.txt"
-                }
+                  license {
+                    name = "Gnu Lesser General Public License"
+                    url = "https://www.gnu.org/licenses/lgpl-3.0.txt"
+                    distribution = "https://www.gnu.org/licenses/lgpl-3.0.txt"
+                  }
             }
           }
         }
       }
-
     }
-
   }
 }
