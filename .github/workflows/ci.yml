@@ -19,11 +19,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v4
+      with:
+        submodules: recursive
     - name: Set up JDK ${{ matrix.java_version }}
       uses: actions/setup-java@v4
       with:
         java-version: ${{ matrix.java_version }}
-        distribution: 'temurin'
+        distribution: temurin
     - name: configure Pagefile
       uses: al-cheb/configure-pagefile-action@v1.3
       if: matrix.os == 'windows-latest'
