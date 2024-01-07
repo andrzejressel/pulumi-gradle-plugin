@@ -6,6 +6,5 @@ import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.tasks.OutputFile
 
 interface SchemaTask : Task {
-  @get:OutputFile
-  val schemaJson: RegularFileProperty
+  @get:OutputFile val schemaJson: RegularFileProperty
 }
