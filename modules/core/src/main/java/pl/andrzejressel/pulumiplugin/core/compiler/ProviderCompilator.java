@@ -125,7 +125,7 @@ public class ProviderCompilator {
         .addArgument("-ldflags")
         .addArgument(String.format(
             "-X %s/%s=%s",
-            providerVariables.project, providerVariables.versionPath, providerVariables.version))
+            providerVariables.project, providerVariables.versionPath, providerVariables.version), false)
         .addArgument(String.format(
             "%s/%s/cmd/%s",
             providerVariables.project, providerVariables.providerPath, providerVariables.tfGen));
@@ -184,7 +184,7 @@ public class ProviderCompilator {
         .addArgument("-ldflags")
         .addArgument(String.format(
             "-X %s/%s=%s",
-            providerVariables.project, providerVariables.versionPath, providerVariables.version))
+            providerVariables.project, providerVariables.versionPath, providerVariables.version), false)
         .addArgument(String.format(
             "%s/%s/cmd/%s",
             providerVariables.project, providerVariables.providerPath, providerVariables.provider));
