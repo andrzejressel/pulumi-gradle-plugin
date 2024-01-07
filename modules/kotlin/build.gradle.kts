@@ -26,7 +26,7 @@ dependencies {
   implementation("com.squareup.tools.build:maven-archeologist:0.0.10")
 
   implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
-  implementation("ch.qos.logback:logback-classic:1.4.8")
+  implementation("ch.qos.logback:logback-classic:1.4.14")
 
   implementation("com.google.code.gson:gson:2.10.1")
 }
