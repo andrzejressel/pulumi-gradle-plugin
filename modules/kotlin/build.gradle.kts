@@ -21,7 +21,7 @@ dependencies {
   implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.7.3")
 
-  implementation("com.github.ajalt.clikt:clikt:3.5.4")
+  implementation("com.github.ajalt.clikt:clikt:4.2.2")
 
   implementation("com.squareup.tools.build:maven-archeologist:0.0.10")
 
