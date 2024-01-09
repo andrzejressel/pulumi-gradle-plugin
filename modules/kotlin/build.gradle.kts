@@ -17,16 +17,16 @@ repositories { mavenCentral() }
 dependencies {
   implementation("org.virtuslab:pulumi-kotlin:0.9.4.0")
 
-  implementation("com.squareup:kotlinpoet:1.14.2")
-  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
-  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.7.2")
+  implementation("com.squareup:kotlinpoet:1.15.3")
+  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.7.3")
 
-  implementation("com.github.ajalt.clikt:clikt:3.5.4")
+  implementation("com.github.ajalt.clikt:clikt:4.2.2")
 
   implementation("com.squareup.tools.build:maven-archeologist:0.0.10")
 
   implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
-  implementation("ch.qos.logback:logback-classic:1.4.8")
+  implementation("ch.qos.logback:logback-classic:1.4.14")
 
   implementation("com.google.code.gson:gson:2.10.1")
 }
