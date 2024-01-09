@@ -5,10 +5,12 @@ import com.autonomousapps.kit.AbstractGradleProject
 import com.autonomousapps.kit.GradleProject
 import com.autonomousapps.kit.Source
 import com.autonomousapps.kit.gradle.Plugin
+import java.nio.file.Path
 
 class AbstractPulumiGradlePluginFixture(
     val additions: String,
     val sources: List<Source>,
+    val buildCacheDirectory: Path,
     val kotlin: Boolean = false
 ) : AbstractGradleProject() {
 
@@ -20,6 +22,18 @@ class AbstractPulumiGradlePluginFixture(
 
   private fun build(): GradleProject {
     return newGradleProjectBuilder(GradleProject.DslKind.KOTLIN)
+        .withRootProject {
+          gradleProperties += "org.gradle.caching=true"
+          settingsScript.additions =
+              """
+                    buildCache {
+                        local {
+                            directory = "${buildCacheDirectory.toUri()}"
+                        }
+                    }
+          """
+                  .trimIndent()
+        }
         .withSubproject("project") {
           sources.addAll(this@AbstractPulumiGradlePluginFixture.sources)
           withBuildScript {

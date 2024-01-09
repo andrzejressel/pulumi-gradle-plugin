@@ -27,33 +27,11 @@ dependencies {
   implementation(libs.jetbrains.annotations)
 
   testImplementation(libs.assertj.core)
-  testImplementation(libs.junit.jupiter.api)
-  testRuntimeOnly(libs.junit.jupiter.engine)
+  testImplementation(libs.junit.jupiter)
+  testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.test { useJUnitPlatform() }
-
-val generateBuildDirFile =
-    tasks.register("generateBuildDirFile") {
-      val buildDir = project.layout.buildDirectory.dir("builddir")
-
-      outputs.dir(buildDir)
-
-      doLast {
-        file("${buildDir.get().asFile}/test").mkdirs()
-        file("${buildDir.get().asFile}/test/BuildDir.java")
-            .writeText(
-                """
-      package test;
-      import java.nio.file.Path;
-      public class BuildDir {
-        public static final Path TMP_DIR = Path.of("${buildDir.get().asFile.toPath().parent.resolve("tmp").toString().replace("\\", "\\\\")}");  
-      }
-    """)
-      }
-    }
-
-sourceSets { test { java { srcDir(generateBuildDirFile) } } }
 
 java { toolchain { languageVersion = JavaLanguageVersion.of(11) } }
 

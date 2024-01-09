@@ -8,9 +8,12 @@ import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.tasks.*
 import pl.andrzejressel.pulumiplugin.core.languages.KotlinLanguage
 
+@CacheableTask
 abstract class GenerateKotlinSourcesTask : DefaultTask() {
 
-  @get:InputFile abstract val schemaFile: RegularFileProperty
+  @get:PathSensitive(PathSensitivity.NONE)
+  @get:InputFile
+  abstract val schemaFile: RegularFileProperty
   @get:OutputDirectory abstract val output: DirectoryProperty
 
   @TaskAction

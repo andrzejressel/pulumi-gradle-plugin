@@ -12,7 +12,6 @@ import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
-import test.BuildDir;
 
 public class DownloadProviderTest {
 
@@ -25,8 +24,7 @@ public class DownloadProviderTest {
     // Test case 1: Download provider from a valid URL with a valid revision
     URL providerGitUrl1 = new URL("https://github.com/github/gitignore.git");
     String revision1 = "main";
-    Path result1 =
-        providerCompilator.downloadProvider(providerGitUrl1, revision1, BuildDir.TMP_DIR);
+    Path result1 = providerCompilator.downloadProvider(providerGitUrl1, revision1, tempDir);
     assertNotNull(result1);
     // Add assertions to verify the downloaded provider matches the expected result
 
@@ -35,7 +33,7 @@ public class DownloadProviderTest {
     String revision2 = "invalid_revision";
     Exception exception2 = assertThrows(
         Exception.class,
-        () -> providerCompilator.downloadProvider(providerGitUrl2, revision2, BuildDir.TMP_DIR));
+        () -> providerCompilator.downloadProvider(providerGitUrl2, revision2, tempDir));
     // Add assertions to verify the exception message or type matches the expected result
 
     // Test case 3: Download provider from an invalid URL
@@ -43,7 +41,7 @@ public class DownloadProviderTest {
     String revision3 = "master";
     Exception exception3 = assertThrows(
         Exception.class,
-        () -> providerCompilator.downloadProvider(providerGitUrl3, revision3, BuildDir.TMP_DIR));
+        () -> providerCompilator.downloadProvider(providerGitUrl3, revision3, tempDir));
     // Add assertions to verify the exception message or type matches the expected result
   }
 

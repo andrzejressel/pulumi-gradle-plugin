@@ -23,7 +23,7 @@ class ChildPlugin : Plugin<Project> {
     val mvnVersion = target.parent!!.version.toString()
 
     target.afterEvaluate {
-      val license = ext.license.get()!!
+      val license = ext.license.get()
 
       configure<SpotlessExtension> {
         kotlin {
@@ -59,6 +59,7 @@ class ChildPlugin : Plugin<Project> {
 
         pom {
           licenses {
+            @Suppress("WHEN_ENUM_CAN_BE_NULL_IN_JAVA")
             when (license) {
               GPL ->
                   license {

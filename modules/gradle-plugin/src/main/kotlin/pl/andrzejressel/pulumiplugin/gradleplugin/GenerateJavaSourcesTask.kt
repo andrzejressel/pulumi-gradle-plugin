@@ -6,17 +6,17 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty
 import org.gradle.api.provider.Property
-import org.gradle.api.tasks.Input
-import org.gradle.api.tasks.InputFile
-import org.gradle.api.tasks.OutputDirectory
-import org.gradle.api.tasks.TaskAction
+import org.gradle.api.tasks.*
+import org.gradle.api.tasks.PathSensitivity.*
 import pl.andrzejressel.pulumiplugin.core.languages.JavaLanguage
 
+@CacheableTask
 abstract class GenerateJavaSourcesTask : DefaultTask() {
 
   @get:Input abstract val pulumiJavaVersion: Property<String>
-  @get:InputFile abstract val schemaFile: RegularFileProperty
-  //    @get:Input abstract val schemaJsonURI: Property<URI>
+
+  @get:PathSensitive(NONE) @get:InputFile abstract val schemaFile: RegularFileProperty
+
   @get:OutputDirectory abstract val output: DirectoryProperty
 
   @TaskAction
