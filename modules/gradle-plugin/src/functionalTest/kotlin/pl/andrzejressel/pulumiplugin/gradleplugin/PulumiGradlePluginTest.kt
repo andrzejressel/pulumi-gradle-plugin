@@ -180,8 +180,8 @@ class PulumiGradlePluginTest {
   fun kotlinGenerationShouldCache() {
     // Given
     val project =
-      AbstractPulumiGradlePluginFixture(
-        """
+        AbstractPulumiGradlePluginFixture(
+                """
             pulumi {
                pulumiJavaVersion = "0.9.8"
                enableKotlinSupport = true
@@ -193,13 +193,13 @@ class PulumiGradlePluginTest {
                }
             }
             """
-          .trimIndent(),
-        listOf(
-          Source(
-            SourceType.KOTLIN,
-            "Main",
-            "com/example/project",
-            """
+                    .trimIndent(),
+                listOf(
+                    Source(
+                        SourceType.KOTLIN,
+                        "Main",
+                        "com/example/project",
+                        """
         package com.example.project;
 
         import com.pulumi.cockroach.kotlin.AllowList;
@@ -211,16 +211,13 @@ class PulumiGradlePluginTest {
           }
         }
       """
-              .trimIndent())),
-        tempDir,
-        kotlin = true)
-        .gradleProject
+                            .trimIndent())),
+                tempDir,
+                kotlin = true)
+            .gradleProject
 
     // When
-    val kotlinSourcesResult1 =
-      build(
-        project.rootDir,
-        ":project:generateKotlinSourcesForCockroach")
+    val kotlinSourcesResult1 = build(project.rootDir, ":project:generateKotlinSourcesForCockroach")
 
     // Then
     assertThat(kotlinSourcesResult1).task(":project:generateKotlinSourcesForCockroach").succeeded()
@@ -228,10 +225,7 @@ class PulumiGradlePluginTest {
     build(project.rootDir, "clean")
 
     // When
-    val kotlinSourcesResult2 =
-      build(
-        project.rootDir,
-        ":project:generateKotlinSourcesForCockroach")
+    val kotlinSourcesResult2 = build(project.rootDir, ":project:generateKotlinSourcesForCockroach")
 
     // Then
     assertThat(kotlinSourcesResult2).task(":project:generateKotlinSourcesForCockroach").fromCache()

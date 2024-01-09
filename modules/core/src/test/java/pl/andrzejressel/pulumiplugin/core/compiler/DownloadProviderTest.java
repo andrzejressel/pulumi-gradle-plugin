@@ -24,8 +24,7 @@ public class DownloadProviderTest {
     // Test case 1: Download provider from a valid URL with a valid revision
     URL providerGitUrl1 = new URL("https://github.com/github/gitignore.git");
     String revision1 = "main";
-    Path result1 =
-        providerCompilator.downloadProvider(providerGitUrl1, revision1, tempDir);
+    Path result1 = providerCompilator.downloadProvider(providerGitUrl1, revision1, tempDir);
     assertNotNull(result1);
     // Add assertions to verify the downloaded provider matches the expected result
 
