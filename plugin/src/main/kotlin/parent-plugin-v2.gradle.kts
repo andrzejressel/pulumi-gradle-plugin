@@ -15,19 +15,17 @@ val versionDetails: Closure<VersionDetails> by extra
 val details = versionDetails()
 
 version =
-  if (details.isCleanTag) {
-    val lastTag = details.lastTag
-    if (lastTag.startsWith("v")) {
-      // Release
-      details.lastTag.removePrefix("v")
+    if (details.isCleanTag) {
+      val lastTag = details.lastTag
+      if (lastTag.startsWith("v")) {
+        // Release
+        details.lastTag.removePrefix("v")
+      } else {
+        // main
+        "main-SNAPSHOT"
+      }
     } else {
-      // main
-      "main-SNAPSHOT"
+      "DEV-SNAPSHOT"
     }
-  } else {
-    "DEV-SNAPSHOT"
-  }
 
-tasks.named<Wrapper>("wrapper") {
-  distributionType = Wrapper.DistributionType.ALL
-}
+tasks.named<Wrapper>("wrapper") { distributionType = Wrapper.DistributionType.ALL }
