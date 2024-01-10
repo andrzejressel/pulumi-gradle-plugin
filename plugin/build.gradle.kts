@@ -2,6 +2,7 @@ import com.diffplug.gradle.spotless.SpotlessExtension
 
 plugins {
   `kotlin-dsl`
+  `kotlin-dsl-precompiled-script-plugins`
   alias(libs.plugins.kotlin)
   `java-gradle-plugin`
   alias(libs.plugins.spotless)
@@ -9,10 +10,6 @@ plugins {
 
 gradlePlugin {
   plugins {
-    create("parentPlugin") {
-      id = "pl.andrzejressel.deeplambdaserialization.buildplugin.parent"
-      implementationClass = "pl.andrzejressel.deeplambdaserialization.buildplugin.ParentPlugin"
-    }
     create("childPlugin") {
       id = "pl.andrzejressel.deeplambdaserialization.buildplugin.child"
       implementationClass = "pl.andrzejressel.deeplambdaserialization.buildplugin.ChildPlugin"
