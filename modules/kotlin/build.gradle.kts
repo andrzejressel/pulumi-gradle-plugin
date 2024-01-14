@@ -1,18 +1,12 @@
-import pl.andrzejressel.deeplambdaserialization.buildplugin.ChildPlugin
-import pl.andrzejressel.deeplambdaserialization.buildplugin.CommonExtension
 import pl.andrzejressel.deeplambdaserialization.buildplugin.License
 
 plugins {
-  alias(libs.plugins.kotlin)
-  alias(libs.plugins.kotlin.serialization)
+  `kotlin-dsl`
   alias(libs.plugins.testkit)
+  id("child-plugin-kotlin")
 }
 
-apply<ChildPlugin>()
-
-configure<CommonExtension> { license = License.LGPL }
-
-repositories { mavenCentral() }
+childPlugin { license = License.LGPL }
 
 dependencies {
   implementation("org.virtuslab:pulumi-kotlin:0.9.4.0")
