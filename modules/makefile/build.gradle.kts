@@ -19,7 +19,7 @@ tasks.test { useJUnitPlatform() }
 java { toolchain { languageVersion = JavaLanguageVersion.of(11) } }
 
 tasks.jacocoTestReport {
-  dependsOn("test")
+  dependsOn("test", "functionalTest")
 
   executionData.setFrom(fileTree(layout.buildDirectory).include("/jacoco/*.exec"))
   reports {
