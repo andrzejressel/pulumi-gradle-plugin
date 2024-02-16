@@ -1,25 +1,17 @@
-import pl.andrzejressel.deeplambdaserialization.buildplugin.ChildPlugin
-import pl.andrzejressel.deeplambdaserialization.buildplugin.CommonExtension
 import pl.andrzejressel.deeplambdaserialization.buildplugin.License
 
 plugins {
-  alias(libs.plugins.kotlin)
   `kotlin-dsl`
   `java-gradle-plugin`
   alias(libs.plugins.testkit)
-  jacoco
+  id("child-plugin-kotlin")
 }
 
-apply<ChildPlugin>()
-
-configure<CommonExtension> { license = License.LGPL }
-
-repositories { mavenCentral() }
+childPlugin { license = License.LGPL }
 
 dependencies {
   implementation(project(":modules:core"))
-  //    compileOnly(libs.plugins.kotlin)
-  compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20")
+  compileOnly(libs.kotlin.gradle.plugin)
   implementation(libs.commons.lang)
   functionalTestImplementation(libs.commons.io)
   functionalTestImplementation(libs.junit.jupiter)
@@ -55,5 +47,3 @@ tasks.jacocoTestReport {
     html.required = true
   }
 }
-
-tasks.named("check") { dependsOn("jacocoTestReport") }

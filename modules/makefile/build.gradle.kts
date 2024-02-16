@@ -1,20 +1,12 @@
-import pl.andrzejressel.deeplambdaserialization.buildplugin.ChildPlugin
-import pl.andrzejressel.deeplambdaserialization.buildplugin.CommonExtension
 import pl.andrzejressel.deeplambdaserialization.buildplugin.License
 
 plugins {
-  alias(libs.plugins.kotlin) apply false
-  `kotlin-dsl` apply false
+  `kotlin-dsl`
   alias(libs.plugins.testkit)
-  `java-library`
-  jacoco
+  id("child-plugin")
 }
 
-apply<ChildPlugin>()
-
-configure<CommonExtension> { license = License.LGPL }
-
-repositories { mavenCentral() }
+childPlugin { license = License.LGPL }
 
 dependencies {
   testImplementation(libs.assertj.core)
@@ -27,7 +19,7 @@ tasks.test { useJUnitPlatform() }
 java { toolchain { languageVersion = JavaLanguageVersion.of(11) } }
 
 tasks.jacocoTestReport {
-  dependsOn("test")
+  dependsOn("test", "functionalTest")
 
   executionData.setFrom(fileTree(layout.buildDirectory).include("/jacoco/*.exec"))
   reports {
@@ -35,5 +27,3 @@ tasks.jacocoTestReport {
     html.required = true
   }
 }
-
-tasks.named("check") { dependsOn("jacocoTestReport") }

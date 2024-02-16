@@ -8,19 +8,12 @@ plugins {
   alias(libs.plugins.spotless)
 }
 
-gradlePlugin {
-  plugins {
-    create("childPlugin") {
-      id = "pl.andrzejressel.deeplambdaserialization.buildplugin.child"
-      implementationClass = "pl.andrzejressel.deeplambdaserialization.buildplugin.ChildPlugin"
-    }
-  }
-}
-
 dependencies {
-  compileOnly(libs.spotless.gradle.plugin)
-  compileOnly(libs.git.version.gradle.plugin)
-  compileOnly(libs.maven.publish.gradle.plugin)
+  implementation(libs.spotless.gradle.plugin)
+  implementation(libs.git.version.gradle.plugin)
+  implementation(libs.maven.publish.gradle.plugin)
+  implementation(libs.kotlin.gradle.plugin)
+  implementation(libs.kotlin.serialization.gradle.plugin)
 }
 
 repositories {

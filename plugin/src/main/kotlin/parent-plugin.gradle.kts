@@ -1,10 +1,18 @@
-import com.diffplug.gradle.spotless.SpotlessExtension
 import com.palantir.gradle.gitversion.VersionDetails
+import gradle.kotlin.dsl.accessors._9b9386f00615b901cfb9cbc14bc04c07.spotless
 import groovy.lang.Closure
 import org.gradle.api.tasks.wrapper.Wrapper
 import org.gradle.kotlin.dsl.*
 
-configure<SpotlessExtension> {
+plugins {
+  `java-library`
+  jacoco
+  com.palantir.`git-version`
+  com.diffplug.spotless
+  wrapper
+}
+
+spotless {
   kotlinGradle {
     target("*.gradle.kts") // default target for kotlinGradle
     ktfmt() // or ktfmt() or prettier()
@@ -28,4 +36,4 @@ version =
       "DEV-SNAPSHOT"
     }
 
-tasks.named<Wrapper>("wrapper") { distributionType = Wrapper.DistributionType.ALL }
+tasks.wrapper { distributionType = Wrapper.DistributionType.ALL }
