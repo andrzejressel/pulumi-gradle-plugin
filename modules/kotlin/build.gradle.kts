@@ -20,7 +20,7 @@ dependencies {
   implementation("com.squareup.tools.build:maven-archeologist:0.0.10")
 
   implementation("io.github.microutils:kotlin-logging-jvm:3.0.5")
-  implementation("ch.qos.logback:logback-classic:1.5.3")
+  implementation("ch.qos.logback:logback-classic:1.5.4")
 
   implementation("com.google.code.gson:gson:2.10.1")
 }
