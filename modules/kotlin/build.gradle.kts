@@ -12,7 +12,7 @@ dependencies {
   implementation("org.virtuslab:pulumi-kotlin:0.9.4.0")
 
   implementation("com.squareup:kotlinpoet:1.17.0")
-  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+  implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.8.1")
 
   implementation("com.github.ajalt.clikt:clikt:4.4.0")
