@@ -9,7 +9,7 @@ plugins {
 childPlugin { license = License.LGPL }
 
 dependencies {
-  implementation("org.virtuslab:pulumi-kotlin:0.9.4.0")
+  implementation("org.virtuslab:pulumi-kotlin:0.11.0.0")
 
   implementation("com.squareup:kotlinpoet:1.17.0")
   implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0")
